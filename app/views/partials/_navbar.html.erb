@@ -25,22 +25,31 @@ nav li {
   </li>
  
   
-  <li>
-    <%= link_to "Sign up", sign_up_path, class: "nav-link" %>
-  </li>
-
-  <li>
-    <%= link_to "Sign in", sign_in_path, class: "nav-link" %>
-  </li>
+ 
 
   
 </nav>
 
 <div class="status">
-  <% if @user %>
-    Logged in as: <%= @user.email %>
+  <ul>
+    <% if Current.user %>
+      <li class='nav-item'>
+        <span><%= Current.user.email %></span>
+      </li>
+      <li>
+        <%= button_to "logout", logout_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Sign up", sign_up_path, class: "nav-link" %>
+      </li>
 
-    <%= button_to "logout", logout_path, method: :delete %>
-  <% end %>
+      <li>
+        <%= link_to "Sign in", sign_in_path, class: "nav-link" %>
+      </li>
+    <% end %>
+  </ul>
 </div>
+
+
 
