@@ -60,3 +60,33 @@ body::before {
   );
   opacity: 0.05;
 }
+
+
+input,textarea {
+  width: 100%;
+  display: block;
+}
+
+.input-container {
+  max-width: 300px;
+  padding: 25px 25px;
+}
+
+
+.form-field {
+  padding: 1em;
+  max-width: 600px;
+  margin-bottom: 1em;
+}
+.form-field input {
+  padding: 0.7em;
+  border-radius: 0.7em;
+  color: var(--text-color);
+  max-width: 100%;
+}
+.home-container {
+
+}
+.container {
+
+}
