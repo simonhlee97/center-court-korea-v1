@@ -3,23 +3,59 @@
   min-height:99vh;
 }
 
-.hero {
-  width: 100vw;
-  background: #ff8f8f;
+.text-c {
   text-align:center;
 }
+/* .hero h1 {
+  font-family: Georgia, serif;
+  font-size: 40pt;
+  font-weight: 900;
+} */
+.hero {
+  width: 100vw;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://images.unsplash.com/photo-1531315396756-905d68d21b56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+  color: whitesmoke;
+  padding: 10em 0;
+}
 .hero-text {
-  color: darkred;
+  color: var(--tennis-green);
 }
 .hero-text2 {
-  color: darkgreen;
+  color: var(--tennis-yellow);
+}
+.hero-text3 {
+  color: var(--tennis-blue);
+}
+.latest  {
+  background-color: var(--tennis-green);
+  width: 100vw;
+  padding: 10em 0;
+  text-align: center;
+  color: whitesmoke;
+}
+.latest.blog  {
+  background-color: var(--tennis-blue);
+  width: 100vw;
+  padding: 10em 0;
+  text-align: center;
+  color: whitesmoke;
 }
 </style>
 
 <main class="home-page-container">
   <div class="hero">
-    <h1><span class='hero-text'>My</span><span class='hero-text2'>Rails</span>Starter</h1>
-    <%# <h1><span class='hero-text'>Korea</span><span class='hero-text2'>Tennis</span>Hub</h1> %>
+    <h1 class='text-c'><span class='hero-text'>Center</span><span class='hero-text2'>Court</span><span class='hero-text3'>Korea</span></h1>
+  </div>
+
+  <div class="latest news">
+    <h1>Latest News</h1>
+  </div>
+
+  <div class="latest blog">
+    <h1>Latest Blog Post</h1>
   </div>
 </main>
 

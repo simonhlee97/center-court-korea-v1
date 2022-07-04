@@ -1,0 +1,64 @@
+<style>
+h1 {
+  font-family: Georgia, serfif;
+  font-size: 32pt;
+  text-transform: uppercase;
+}
+h1 .user {
+  text-transform: lowercase;
+  color: var(--accent-color);
+}
+</style>
+
+
+<div class="container">
+
+<section class="text-c">
+<% if Current.user %>
+  <h1>Welcome back <span class="user"><%= Current.user.email %></span></h1>
+
+  <p>Profile Page Menu</p>
+  <ul>
+    <li><%= link_to "Edit Password", edit_password_path %></li>
+    <li class="menu-item" title="Sign Out">
+        <%= button_to logout_path, method: :delete, class: 'menu-item logout-btn' do %>
+          SIGN OUT
+        <% end %>
+      </li>
+    <li>overview</li>
+    <li>activity</li>
+    <li>stats</li>
+    <li>gear</li>
+
+  </ul>
+
+  <div class="table my-bio">
+    <p>Hi. I'm Simon. I am a retired 4.0 player from the US. But I am thinking of coming out of retirement and playing again. I am currently in South Korea.</p>
+  </div>
+
+  <div class="my-activity">
+    <div class="table doubles">
+      <p>DOUBLES History</p>
+    </div>
+    <div class="table singles">
+      <p>SINGLES History</p>
+      
+    </div>
+  </div>
+
+  <div class="table my-gear">
+      <p>My Gear and Equipment</p>
+
+  </div>
+
+
+
+
+
+<% else %>
+  <h3>A Blank Profile Page. Must Sign in to see your profile page.</h3>
+<% end %>
+
+
+</section>
+</div>

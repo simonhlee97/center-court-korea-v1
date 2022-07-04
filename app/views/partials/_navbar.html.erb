@@ -1,55 +1,91 @@
 <style>
-.main-nav {
+.nav-rows {
   display: flex;
   justify-content: center;
-  padding: 2em 0;
+  padding: 0.7em 0;
 }
 nav li {
   list-style-type: none;
-  margin: 0 13px;
+  margin: 0 12px;
 }
+
+
+
+
+
+li.drop-example {
+	display: block;
+	float: left;
+	/* padding: 1rem; */
+	position: relative;
+  transition-duration: 0.2s;
+}
+
+li.drop-example:hover {
+	background: white;
+	cursor: pointer;
+}
+
+li.drop-example ul {
+	background: whitesmoke;
+	visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+	position: absolute;
+  transition: all 0.4s ease;
+  margin-top: 0.5rem;
+	left: 0;
+  display: none;
+}
+
+li.drop-example:hover > ul,
+li.drop-example ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+li.drop-example ul li {
+	clear: both;
+  width: 100%;
+}
+
+
 </style>
 
-<nav class='main-nav'>
+<nav class='nav-rows' role='navigation'>
   <li>
     <%= link_to "Home", root_path, class: "nav-link" %>
   </li>
+
   <li>
     <a href="#">News</a>
   </li>
   <li>
     <a href="#">Blog</a>
   </li>
-  <li>
-    <a href="#">My Profile</a>
-  </li>
- 
-  
  
 
+  <li class='drop-example'>
+    <a href="#">Events</a>
+    <ul class="dropdown">
+      <li><a href="#">Amateur Tournaments</a></li>
+      <li><a href="#">Pro Events</a></li>
+      <li><a href="#">Other Events</a></li>
+    </ul>
+  </li>
+
+
+  <li>
+    <a href="#">Clubs</a>
+  </li>
+  <li>
+    <a href="#">Shops</a>
+  </li>
   
 </nav>
 
-<div class="status">
-  <ul>
-    <% if Current.user %>
-      <li class='nav-item'>
-        <span><%= Current.user.email %></span>
-      </li>
-      <li>
-        <%= button_to "logout", logout_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "Sign up", sign_up_path, class: "nav-link" %>
-      </li>
 
-      <li>
-        <%= link_to "Sign in", sign_in_path, class: "nav-link" %>
-      </li>
-    <% end %>
-  </ul>
-</div>
 
 
 

@@ -1,0 +1,239 @@
+<style>
+.logout-btn {
+  width: 100px;
+  border: none;
+  background: var(--tennis-blue);
+  cursor: pointer;
+  color: white;
+}
+
+.menu {
+  background: var(--tennis-blue);
+  height: 4rem;
+}
+.menu ol {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+.menu > ol {
+  max-width: 1024px;
+  padding: 0 1rem;
+  display: flex;
+}
+.menu > ol > .menu-item {
+  flex: 1;
+  padding: 0.75rem 1px;
+}
+.menu > ol > .menu-item:after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  bottom: 8px;
+  left: calc(50% - 2px);
+  background: whitesmoke;
+  will-change: transform;
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+.menu > ol > .menu-item:hover:after {
+  transform: scale(1);
+}
+.menu-item {
+  position: relative;
+  line-height: 2.5rem;
+  text-align: center;
+}
+.menu-item a {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  color: #FFF;
+}
+.sub-menu .menu-item {
+  padding: 0.75rem 0;
+  background: var(--dark-blue);
+  opacity: 0;
+  transform-origin: bottom;
+  animation: enter 0.2s ease forwards;
+}
+.sub-menu .menu-item:nth-child(1) {
+  animation-duration: 0.2s;
+  animation-delay: 0s;
+}
+.sub-menu .menu-item:nth-child(2) {
+  animation-duration: 0.3s;
+  animation-delay: 0.1s;
+}
+.sub-menu .menu-item:nth-child(3) {
+  animation-duration: 0.4s;
+  animation-delay: 0.2s;
+}
+.sub-menu .menu-item:hover {
+  background: var(--tennis-blue);
+}
+.sub-menu .menu-item a {
+  padding: 0 0.5rem;
+}
+
+@media screen and (max-width: 640px) {
+  .sub-menu .menu-item {
+    background: var(--dark-blue);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .menu {
+    position: relative;
+  }
+  .menu:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 2px);
+    right: 1rem;
+    width: 30px;
+    height: 4px;
+    background: #FFF;
+    box-shadow: 0 10px #FFF, 0 -10px #FFF;
+  }
+  .menu > ol {
+    display: none;
+    background: var(--tennis-blue);
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    animation: fade 0.2s ease-out;
+  }
+  .menu > ol > .menu-item {
+    flex: 0;
+    opacity: 0;
+    animation: enter 0.3s ease-out forwards;
+  }
+  .menu > ol > .menu-item:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .menu > ol > .menu-item:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .menu > ol > .menu-item:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .menu > ol > .menu-item:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  .menu > ol > .menu-item:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+  .menu > ol > .menu-item + .menu-item {
+    margin-top: 0.75rem;
+  }
+  .menu > ol > .menu-item:after {
+    left: auto;
+    right: 1rem;
+    bottom: calc(50% - 2px);
+  }
+  .menu > ol > .menu-item:hover {
+    z-index: 1;
+  }
+  .menu:hover > ol {
+    display: flex;
+  }
+  .menu:hover:after {
+    box-shadow: none;
+  }
+}
+
+.sub-menu {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1;
+}
+.menu-item:hover > .sub-menu {
+  display: block;
+}
+
+@media screen and (max-width: 640px) {
+  .sub-menu {
+    width: 100vw;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: scaleY(0.98) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>
+
+<nav class="menu">
+  <ol>
+    <li class="menu-item" title="Home"><a href="/"><i class="fa-solid fa-house"></i></a></li>
+    <li class="menu-item">
+      <%= link_to "News", news_path %>
+    </li>
+    <li class="menu-item">
+      <%= link_to "Courts", courts_path %>
+    </li>
+    <li class="menu-item">
+      <a href="#">Events <i class="fa-solid fa-angle-down"></i></a>
+      <ol class="sub-menu">
+        <li class="menu-item"><a href="#">Amateur Events</a></li>
+        <li class="menu-item"><a href="#">Pro Events</a></li>
+        <li class="menu-item"><a href="#">Other Events</a></li>
+      </ol>
+    </li>
+    <li class="menu-item"><%= link_to "Clubs", clubs_path %></li>
+    <li class="menu-item"><%= link_to "Shops", shops_path %></li>
+
+    <% if Current.user %>
+      <li class="menu-item" title="My Profile">
+        <a href="#"><i class="fa-solid fa-user"></i></a>
+      </li>
+
+      <li class="menu-item" title="Sign Out">
+        <%= button_to logout_path, method: :delete, class: 'menu-item logout-btn' do %>
+          <i class="fa-solid fa-right-from-bracket" ></i>
+        <% end %>
+      </li>
+
+      
+    
+      
+    <% else %>
+      <li class="menu-item">
+        <%= link_to "Sign up", sign_up_path %>
+      </li>
+
+      <li class="menu-item">
+        <%= link_to "Sign in", sign_in_path, class: "nav-link" %>
+      </li>
+    <% end %>
+
+  </ol>
+</nav>
+
+<nav class="nav-rows">
+    
+</nav>
