@@ -1,15 +1,30 @@
-<h1>Forgot your password?</h1>
+<style>
+.form-wrapper {
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  margin: auto;
+  padding: 2em 1em;
+  border-radius: 10px;
+}
+h1 {
+  margin-bottom: 2em;
+}
+</style>
 
-<%= form_with url: password_reset_path do |form| %>
+<div class="container">
+  <h1 class='text-c'>Forgot your password?</h1>
+  <div class="form-wrapper">
+    <%= form_with url: password_reset_path do |form| %>
+          <div class="form-field">
+            <%= form.label :email %>
+            <%= form.text_field :email, class: 'field' %>
+          </div>
 
-  <div class="form-field">
-    <%= form.label :email %>
-    <br/>
-    <%= form.text_field :email %>
+          <%= form.submit "Send Password Reset Email", class: "btn" %>
+         
+    <% end %>
   </div>
-
-  <%= form.submit "Send Password Reset Email", class: "btn-primary" %>
-
-
-
-<% end %>
+</div>

@@ -1,41 +1,161 @@
 <style>
-.signup-form {
-  border: 1px solid black;
-  max-width: 600px;
+/* codepen login form */
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:660px;
+	position:relative;
+	background:url('https://images.unsplash.com/photo-1548920169-1545d0070f81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') no-repeat center;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:rgba(4, 18, 0,.7);
+}
+
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form .group{
+	margin-bottom: 35px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#1161ee;
+	cursor: pointer;
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	content:'';
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+	left:3px;
+	width:5px;
+	bottom:6px;
+	transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+	top:6px;
+	right:0;
+	transform:scale(0) rotate(0);
+}
+.login-form .group .check:checked + label{
+	color:#fff;
+}
+.login-form .group .check:checked + label .icon{
+	background:#1161ee;
+}
+
+
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-link{
+	text-align:center;
+}
+.form-headers {
+	color: whitesmoke;
+	padding: 1em;
 }
 </style>
 
-<h1>Sign Up</h1>
+<div class="container">
 
-<div class="signup-form">
-<%= form_with model: @user, url:sign_up_path do |form| %>
-  <% if form.object.errors.any? %>
-    <div class="alert">
-      <% form.object.errors.full_messages.each do |message| %>
-        <div><%= message %></div>
-      <% end %>
+  <%= form_with model: @user, url:sign_up_path do |form| %>
+    <% if form.object.errors.any? %>
+      <div class="alert">
+        <% form.object.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+      </div>
+    <% end %>
+
+		
+
+    <div class="login-wrap">
+      <div class="login-html">
+				<div class='text-c form-headers'>
+					<h2>Center Court Korea</h2>
+					<hr>
+					<p>Sign Up</p>
+					<hr>
+				</div>
+
+        <div class="login-form">
+
+
+					<div class="group">
+						<%= form.label :email, class:'label' %>
+						<%= form.text_field :email, class:'input' %>
+					</div>
+
+					<div class="group">
+					<%= form.label :password, class:'label' %>
+					<%= form.password_field :password, class:'input' %>
+					</div>
+
+					<div class="group">
+					<%= form.label :password_confirmation, class:'label' %>
+					<%= form.password_field :password_confirmation, class:'input' %>
+					</div>
+
+					<div class="group">
+						<%= form.submit "Register", class: "button" %>
+					</div>
+        </div>
+      </div>
     </div>
   <% end %>
-
-
-  <div class="form-field">
-    <%= form.label :email %>
-    <br/>
-    <%= form.text_field :email %>
-  </div>
-  
-  <div class="form-field">
-  <%= form.label :password %>
-  <br/>
-  <%= form.password_field :password %>
-  </div>
-
-  <div class="form-field">
-  <%= form.label :password_confirmation %>
-  <br/>
-  <%= form.password_field :password_confirmation %>
-  </div>
-
-  <%= form.submit "Register", class: "btn-primary" %>
-<% end %>
 </div>
+
+
+

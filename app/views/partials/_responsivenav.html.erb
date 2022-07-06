@@ -199,17 +199,19 @@
     <li class="menu-item">
       <a href="#">Events <i class="fa-solid fa-angle-down"></i></a>
       <ol class="sub-menu">
-        <li class="menu-item"><a href="#">Amateur Events</a></li>
-        <li class="menu-item"><a href="#">Pro Events</a></li>
-        <li class="menu-item"><a href="#">Other Events</a></li>
+        <li class="menu-item"><%= link_to "Amateur Events", amateur_path %></li>
+        <li class="menu-item"><%= link_to "Pro Events", pro_path %></li>
+        <li class="menu-item"><%= link_to "Other Events", other_path %></li>
       </ol>
     </li>
     <li class="menu-item"><%= link_to "Clubs", clubs_path %></li>
-    <li class="menu-item"><%= link_to "Shops", shops_path %></li>
+    <li class="menu-item"><%= link_to "Pro shops", proshops_path %></li>
 
     <% if Current.user %>
       <li class="menu-item" title="My Profile">
-        <a href="#"><i class="fa-solid fa-user"></i></a>
+        <a href='/profile'>
+          <i class="fa-solid fa-user"></i>
+        </a>
       </li>
 
       <li class="menu-item" title="Sign Out">
@@ -232,8 +234,4 @@
     <% end %>
 
   </ol>
-</nav>
-
-<nav class="nav-rows">
-    
 </nav>

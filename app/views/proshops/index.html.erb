@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+
+  <h2>Pro Shops Directory</h2>
+
+  <table id="proshops" class="content-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @proshops.each do |proshop| %>
+        <%= render proshop %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "Add New Proshop", new_proshop_path %>
+
+</div>

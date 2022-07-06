@@ -1,0 +1,2 @@
+class Proshop < ApplicationRecord
+end

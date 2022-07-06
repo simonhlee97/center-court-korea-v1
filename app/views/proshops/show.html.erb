@@ -1,0 +1,29 @@
+<style>
+.controls {
+  max-width: 1024px;
+}
+.proshop-details {
+  min-height: 70vh;
+}
+</style>
+
+<div class='proshop-details profile-card'>
+  <%# render @proshop %>
+
+
+  <h2 class='text-c'><%= @proshop.name %></h2>
+
+  <p class='text-c'><%= @proshop.city %></p>
+  <p class='text-c'><%= @proshop.address %></p>
+  <p class='text-c'><%= @proshop.phone %></p>
+
+
+
+</div>
+
+<div class="controls flex">
+  <%= link_to "Edit this proshop", edit_proshop_path(@proshop) %> |
+  <%= link_to "Back to proshops", proshops_path %>
+  <%= button_to "Destroy this proshop", @proshop, method: :delete, class: 'btn-danger' %>
+</div>
+

@@ -1,0 +1,44 @@
+<div class="container">
+<%= form_with(model: proshop) do |form| %>
+  <% if proshop.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(proshop.errors.count, "error") %> prohibited this proshop from being saved:</h2>
+
+      <ul>
+        <% proshop.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :website, style: "display: block" %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

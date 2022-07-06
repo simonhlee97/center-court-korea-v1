@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_30_083549) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_06_055317) do
+  create_table "proshops", force: :cascade do |t|
+    t.string "name"
+    t.string "city", default: "Seoul"
+    t.string "address"
+    t.string "phone", default: "032-9999-9999"
+    t.string "website", default: "www.example.com"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"

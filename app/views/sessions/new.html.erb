@@ -1,24 +1,23 @@
-<h2>Log in</h2>
+<div class="container">
+  <%= form_with url: sign_in_path do |form| %>
+    <div class="form-container">
+      <div class="contact-box">
+        <div class="left"></div>
+        <div class="right">
+          <h2 class='form-h2'>Center Court Korea</h2>
 
+          <%= form.label :email %>
+          <%= form.text_field :email, class: 'field', placeholder: 'Email' %>
 
-<%= form_with url: sign_in_path do |form| %>
+          <%= form.label :password %>
+          <%= form.password_field :password, class: 'field', placeholder: 'Password' %>
 
-<div class="form-field">
-    <%= form.label :email %>
-    <br/>
-    <%= form.text_field :email %>
-  </div>
-  
-  <div class="form-field">
-  <%= form.label :password %>
-  <br/>
-  <%= form.password_field :password %>
-  </div>
-
-  <br />
-  <%= link_to "Forgot your password?", password_reset_path %>
-
-  <%= form.submit "Login", class: "btn-primary" %>
-
-
-<% end %>
+          <%= link_to "Forgot your password?", password_reset_path %>
+          <br>
+          <br>
+          <%= form.submit "Login", class: "btn" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

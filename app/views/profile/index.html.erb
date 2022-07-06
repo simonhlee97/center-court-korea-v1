@@ -8,57 +8,84 @@ h1 .user {
   text-transform: lowercase;
   color: var(--accent-color);
 }
+
+.parent-grid {
+  display: grid;
+  grid-template-columns: minmax(190px, 25%) 1fr;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar {
+  min-height: 98vh;
+  background: grey;
+  font-size: 1rem;
+  text-align: justify;
+  padding-left: 16px;
+  padding-top: 20px;
+}
+
+.profile-content {
+  padding: 2rem;
+}
 </style>
 
 
-<div class="container">
 
-<section class="text-c">
-<% if Current.user %>
-  <h1>Welcome back <span class="user"><%= Current.user.email %></span></h1>
+<div class="parent-grid">
 
-  <p>Profile Page Menu</p>
-  <ul>
-    <li><%= link_to "Edit Password", edit_password_path %></li>
-    <li class="menu-item" title="Sign Out">
-        <%= button_to logout_path, method: :delete, class: 'menu-item logout-btn' do %>
-          SIGN OUT
-        <% end %>
-      </li>
-    <li>overview</li>
-    <li>activity</li>
-    <li>stats</li>
-    <li>gear</li>
-
-  </ul>
-
-  <div class="table my-bio">
-    <p>Hi. I'm Simon. I am a retired 4.0 player from the US. But I am thinking of coming out of retirement and playing again. I am currently in South Korea.</p>
+  <div class="sidebar">
+    <p>overview</p>
+    <p>activity</p>
+    <p>stats</p>
+    <p>my gear</p>
+    <hr>
+    <p><%= link_to "Edit Password", edit_password_path %></p>
+    <p>
+      <%= button_to logout_path, method: :delete, class: 'menu-item logout-btn' do %>
+        SIGN OUT
+      <% end %>
+    </p>
   </div>
 
-  <div class="my-activity">
-    <div class="table doubles">
-      <p>DOUBLES History</p>
-    </div>
-    <div class="table singles">
-      <p>SINGLES History</p>
-      
-    </div>
+  <div class="profile-content">
+    <section class="text-c">
+      <% if Current.user %>
+        <h1>Welcome back <span class="user"><%= Current.user.email %></span></h1>
+
+        <div class="table profile-card">
+          <p>Hi. I'm Simon. I am a retired 4.0 player from the US. But I am thinking of coming out of retirement and playing again. I am currently in South Korea.</p>
+        </div>
+
+        <div class="my-activity profile-card">
+          <div class="table doubles">
+            <p>DOUBLES History</p>
+          </div>
+          <div class="table singles">
+            <p>SINGLES History</p>
+            
+          </div>
+        </div>
+
+        <div class="table my-gear profile-card">
+            <p>My Gear and Equipment</p>
+
+        </div>
+
+
+
+
+
+      <% else %>
+        <h3>A Blank Profile Page. Must Sign in to see your profile page.</h3>
+      <% end %>
+
+    </section>
+
   </div>
-
-  <div class="table my-gear">
-      <p>My Gear and Equipment</p>
-
-  </div>
+</div>
 
 
+ 
 
-
-
-<% else %>
-  <h3>A Blank Profile Page. Must Sign in to see your profile page.</h3>
-<% end %>
-
-
-</section>
 </div>
