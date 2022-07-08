@@ -1,8 +1,20 @@
 class ProfileController < ApplicationController
 
-  before_action :require_user_logged_in!
+  before_action :authenticate_user!
 
   def index
+    
+  end
+
+  def gear
+    
+  end
+
+  def stats
+    
+  end
+
+  def activity
     
   end
 

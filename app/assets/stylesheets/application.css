@@ -211,10 +211,32 @@ button {
 
 
 
+/* UTILITY CLASSES */
 .container {
   padding: 2em;
   min-height: 99vh;
   max-width: 1200px;
+  margin: auto;
+}
+
+.text-c {
+  text-align: center;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/* UTILITY CLASSES */
+
+
+
+
+/* FORMS CSS */
+form {
   margin: auto;
 }
 
@@ -223,27 +245,20 @@ input,textarea {
   display: block;
 }
 
-.input-container {
-  max-width: 300px;
-  padding: 25px 25px;
-}
-
-
-.form-field {
+.field {
   padding: 1em;
   max-width: 600px;
-  margin-bottom: 1em;
+  margin: 1em auto;
 }
-.form-field input {
+.field input {
   padding: 0.7em;
   border-radius: 0.7em;
   color: var(--text-color);
   max-width: 100%;
 }
+/* FORMS CSS */
 
-.text-c {
-  text-align: center;
-}
+
 
 
 /* content table (layout for courts, clubs, news page) */
@@ -285,40 +300,6 @@ input,textarea {
 .content-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
-}
-
-
-/* simple responsive table */
-table {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
-}
-
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
-}
-
-table tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: .35em;
-}
-
-table th,
-table td {
-  padding: .625em;
-  text-align: center;
-}
-
-table th {
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
 }
 
 @media screen and (max-width: 600px) {
@@ -376,7 +357,7 @@ table th {
 .btn{
 	width: 100%;
 	padding: 0.5rem 1rem;
-	background-color: #2ecc71;
+	background-color: var(--tennis-green);
 	color: #fff;
 	font-size: 1.1rem;
 	border: none;
@@ -452,7 +433,7 @@ h2.form-h2:after{
 }
 
 .field{
-	width: 100%;
+	max-width: 75%;
 	border: 2px solid rgba(0, 0, 0, 0);
 	outline: none;
 	background-color: rgba(230, 230, 230, 0.6);
@@ -490,7 +471,7 @@ h2.form-h2:after{
 }
 
 .profile-card {
-  width: 290px;
+  min-width: 290px;
   border-radius: 8px;
   border: 1px solid black;
   padding: 1.5em;
@@ -504,3 +485,25 @@ h2.form-h2:after{
   color: white;
   font-weight: 700;
 }
+
+/* PROFILE CSS */
+.profile-grid {
+  display: grid;
+  grid-template-columns: minmax(190px, 25%) 1fr;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar {
+  min-height: 98vh;
+  background: grey;
+  font-size: 1rem;
+  text-align: justify;
+  padding-left: 16px;
+  padding-top: 20px;
+}
+
+.profile-content {
+  padding: 2rem;
+}
+/* PROFILE CSS */

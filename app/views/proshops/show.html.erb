@@ -3,27 +3,50 @@
   max-width: 1024px;
 }
 .proshop-details {
-  min-height: 70vh;
+  min-height: 50vh;
+  width: 100%;
+  margin: 0 auto;
+}
+.hero {
+  max-width: 100%;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+  color: whitesmoke;
+  padding: 7em 0;
+}
+.map {
+  max-width: 100%;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+  color: whitesmoke;
+  padding: 7em 0;
+}
+.info {
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
 }
 </style>
 
-<div class='proshop-details profile-card'>
-  <%# render @proshop %>
+<div class='container proshop-details'>
 
+  <div class="profile-card">
+    <div class="hero">
+      <h2 class='text-c'><%= @proshop.name %></h2>
+    </div>
+    <div class="info">
+      <span class='text-c'><%= @proshop.city %></span>
+      <span class='text-c'><%= @proshop.address %></span>
+      <span class='text-c'><%= @proshop.phone %></span>
+    </div>
+    <div class="map">
+      <h2 class='text-c'><%= @proshop.address %></h2>
+    </div>
+  </div>
 
-  <h2 class='text-c'><%= @proshop.name %></h2>
-
-  <p class='text-c'><%= @proshop.city %></p>
-  <p class='text-c'><%= @proshop.address %></p>
-  <p class='text-c'><%= @proshop.phone %></p>
-
-
-
-</div>
-
-<div class="controls flex">
-  <%= link_to "Edit this proshop", edit_proshop_path(@proshop) %> |
-  <%= link_to "Back to proshops", proshops_path %>
-  <%= button_to "Destroy this proshop", @proshop, method: :delete, class: 'btn-danger' %>
 </div>
 

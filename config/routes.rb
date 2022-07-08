@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "main#index"
   
   resources :proshops
@@ -14,22 +15,28 @@ Rails.application.routes.draw do
   get "events/other", to: "events#other", as: :other
 
   get "profile", to: "profile#index", as: :profile
+  get "profile/gear", to: "profile#gear", as: :gear
+  get "profile/stats", to: "profile#stats", as: :stats
+  get "profile/activity", to: "profile#activity", as: :activity
+
+
+
   
   # Auth Routes
-  get "password", to: "passwords#edit", as: :edit_password
-  patch "password", to: "passwords#update"
+  # get "password", to: "passwords#edit", as: :edit_password
+  # patch "password", to: "passwords#update"
 
-  get "password/reset", to: "password_resets#new"
-  post "password/reset", to: "password_resets#create"
+  # get "password/reset", to: "password_resets#new"
+  # post "password/reset", to: "password_resets#create"
 
-  get "password/reset/edit", to: "password_resets#edit"
-  patch "password/reset/edit", to: "password_resets#update"
+  # get "password/reset/edit", to: "password_resets#edit"
+  # patch "password/reset/edit", to: "password_resets#update"
 
-  get "sign_up", to: "register#new"
-  post "sign_up", to: "register#create"
+  # get "sign_up", to: "register#new"
+  # post "sign_up", to: "register#create"
 
-  get "sign_in", to: "sessions#new"
-  post "sign_in", to: "sessions#create"
+  # get "sign_in", to: "sessions#new"
+  # post "sign_in", to: "sessions#create"
   
-  delete "logout", to: "sessions#destroy"
+  # delete "logout", to: "sessions#destroy"
 end

@@ -1,0 +1,29 @@
+<style>
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+ul.sidebar {
+  list-style-type: none;
+  color: whitesmoke;
+}
+li.sidebar-item {
+  margin: 8px 0;
+}
+</style>
+
+<ul class='sidebar'>
+  <li class='sidebar-item'><%= current_user.email %></li>
+  <li class='sidebar-item'>
+    <img class='avatar' src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/4b/4bc5e0d865b8591f49fed7f5d3bdde9392c3016b.jpg" alt="avatar">
+  </li>
+  <li class='sidebar-item'><%= link_to "Overview", profile_path %></li>
+  <li class='sidebar-item'><%= link_to "Activity", activity_path %></li>
+  <li class='sidebar-item'><%= link_to "My Stats", stats_path %></li>
+  <li class='sidebar-item'><%= link_to "My Gear", gear_path %></li>
+  <hr>
+  <li class='sidebar-item'>edit info</li>
+</ul>
+
+

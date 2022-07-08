@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
+  # before_action :authenticate_user!
 
   def set_current_user
     if session[:user_id]
@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   end
 
   # check and require user to be logged in
-  def require_user_logged_in!
-    redirect_to sign_in_path, alert: "You must be signed in." if Current.user.nil?
-  end
+  # def require_user_logged_in!
+  #   redirect_to new_user_session_path, alert: "You must be signed in." if Current.user.nil?
+  # end
   
 end

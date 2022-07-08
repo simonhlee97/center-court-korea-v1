@@ -51,8 +51,6 @@
   }
 }
 
-
-
 .flash {
   font-family: monospace;
   padding: 12px;
@@ -71,14 +69,11 @@
 }
 </style>
 
-
 <% if flash[:notice] %>
   <div class="bounce-in-left flash notice" role='alert'>
     <%= flash[:notice] %>
   </div>
-<% end %>
-
-<% if flash[:alert] %>
+<% elsif flash[:alert] %>
   <div class="bounce-in-left flash alert" role='alert'>
     <%= flash[:alert] %>
   </div>
