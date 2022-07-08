@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'users/myprofile'
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
+  get '/u/:id', to: 'users#myprofile', as: 'user'
+
   root to: "main#index"
   
   resources :proshops
